@@ -39,21 +39,22 @@
       <ai_chillDestination>false</ai_chillDestination>
     </building>
     <comps>
+      <li Class="CompProperties_Forbiddable"/>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>20</basePowerConsumption>
       </li>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
-	<placeWorkers>
-		<li>PlaceWorker_DoorLearnOpeningSpeed</li>
-	</placeWorkers>
+    <placeWorkers>
+      <li>PlaceWorker_DoorLearnOpeningSpeed</li>
+    </placeWorkers>
   </ThingDef>
 
   <ThingDef ParentName="RemoteDoors_DoorBase">
     <defName>RemoteDoor</defName>
     <label>remote door</label>
-    <description>Divides rooms. Can be opened only by a remote controller.</description>
+    <description>Divides rooms. Can be activated only by a remote controller.</description>
     <statBases>
       <WorkToBuild>1100</WorkToBuild>
     </statBases>
@@ -61,8 +62,6 @@
       <texPath>Things/Building/Door/Autodoor_Mover</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <damageData>
-      <!--  no damage marks because they don't move with the door
-        <rect>(0,0.12,1,0.76)</rect>-->
         <enabled>false</enabled>
       </damageData>
     </graphicData>
