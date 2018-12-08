@@ -47,7 +47,7 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <shortCircuitInRain>true</shortCircuitInRain>
-        <basePowerConsumption>200</basePowerConsumption>
+        <basePowerConsumption>75</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
@@ -55,7 +55,7 @@
     </comps>
     <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
+      <li>Electricity</li>
     </researchPrerequisites>
   </ThingDef>
 
