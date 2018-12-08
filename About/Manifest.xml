@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest>
+    <identifier>RemoteDoors</identifier>
+    <version>1.0.0.0</version>
+    <manifestUri>https://cdn.jsdelivr.net/gh/TGPArcher/RemoteDoors/About/Manifest.xml</manifestUri>
+    <downloadUri>https://github.com/TGPArcher/RemoteDoors/releases/latest</downloadUri>
+</Manifest>
