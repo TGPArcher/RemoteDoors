@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase" Name="RemoteDoors_Wall" Abstract="True">
+    <thingClass>Building</thingClass>
+    <category>Building</category>
+    <uiIconPath>Things/Buildings/RemoteEmbrasure_MenuIcon/RemoteEmbrasureSmooth_MenuIcon</uiIconPath>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToBuild>135</WorkToBuild>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <costStuffCount>5</costStuffCount>
+    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <coversFloor>true</coversFloor>
+    <placingDraggableDimensions>1</placingDraggableDimensions>
+    <tickerType>Never</tickerType>
+    <rotatable>false</rotatable>
+    <selectable>true</selectable>
+    <neverMultiSelect>true</neverMultiSelect>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <holdsRoof>true</holdsRoof>
+    <staticSunShadowHeight>1.0</staticSunShadowHeight>
+    <blockLight>true</blockLight>
+    <canOverlapZones>false</canOverlapZones>
+    <stuffCategories>
+      <li>Metallic</li>
+      <li>Woody</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <building>
+      <isInert>true</isInert>
+      <ai_chillDestination>false</ai_chillDestination>
+      <blueprintGraphicData>
+        <texPath>Things/Building/Linked/Wall_Blueprint_Atlas</texPath>
+      </blueprintGraphicData>
+    </building>
+    <damageMultipliers>
+      <li>
+        <damageDef>Bomb</damageDef>
+        <multiplier>2</multiplier>
+      </li>
+    </damageMultipliers>
+  </ThingDef>
+
+  <ThingDef Name="RemoteEmbrasure" ParentName="RemoteDoors_Wall" Abstract="True">
+		<defName>RemoteEmbrasure</defName>
+		<label>remote embrasure</label>
+		<description>A special type of wall which has an remote accesible mechanism which when activated an opening in the wall appears allowing you to shoot and throw granades.</description>
+        <thingClass>RemoteDoors.Building_RemoteEmbrasure</thingClass>
+		<costStuffCount>10</costStuffCount>
+		<statBases>
+			<WorkToBuild>200</WorkToBuild>
+		</statBases>
+      <costList>
+          <Steel>5</Steel>
+          <ComponentIndustrial>1</ComponentIndustrial>
+      </costList>
+      <comps>
+          <li Class="CompProperties_Power">
+              <compClass>CompPowerTrader</compClass>
+              <basePowerConsumption>5</basePowerConsumption>
+          </li>
+          <li Class="CompProperties_Breakdownable"/>
+          <li Class="CompProperties_Flickable"/>
+      </comps>
+      <researchPrerequisites>
+      <li>Autodoors</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+	</ThingDef>
+
+    <ThingDef ParentName="RemoteEmbrasure">
+        <defName>RemoteEmbrasure_Close</defName>
+        <fillPercent>1</fillPercent>
+        <designationCategory>Structure</designationCategory>
+        <graphicData>
+          <texPath>Things/Buildings/RemoteEmbrasure_Close</texPath>
+          <graphicClass>Graphic_Appearances</graphicClass>
+          <linkType>CornerFiller</linkType>
+          <linkFlags>
+            <li>Wall</li>
+            <li>Rock</li>
+          </linkFlags>
+          <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+            <edgeTop>Damage/Edge</edgeTop>
+            <edgeBot>Damage/Edge</edgeBot>
+            <edgeLeft>Damage/Edge</edgeLeft>
+            <edgeRight>Damage/Edge</edgeRight>
+          </damageData>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="RemoteEmbrasure">
+        <defName>RemoteEmbrasure_Open</defName>
+        <fillPercent>0.70</fillPercent>
+        <graphicData>
+          <texPath>Things/Buildings/RemoteEmbrasure_Open</texPath>
+          <graphicClass>Graphic_Appearances</graphicClass>
+          <linkType>CornerFiller</linkType>
+          <linkFlags>
+            <li>Wall</li>
+          </linkFlags>
+          <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+            <edgeTop>Damage/Edge</edgeTop>
+            <edgeBot>Damage/Edge</edgeBot>
+            <edgeLeft>Damage/Edge</edgeLeft>
+            <edgeRight>Damage/Edge</edgeRight>
+          </damageData>
+        </graphicData>
+    </ThingDef>
+
+</Defs>
