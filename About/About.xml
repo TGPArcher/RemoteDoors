@@ -5,6 +5,15 @@
   <url></url>
   <targetVersion>1.0.0</targetVersion>
   <description>
-  Adds remote doors, doors with embarsures
+This mod adds remote technologies such as:
+* Remote Controller - an controller which can acces other remote objects and acctivate their functionality
+	- section: Misc
+	- research required: MicroelectronicsBasics
+* Remote Door - a new type of door which can be opened or closed only by the remote controller
+	- section: Structures
+  - research required: Autodoors
+* Remote Embrasure - a new type of wall with an embrasure, it is closed by default but when activated by a remote controller it opens and you can shoot through
+	- section: Structures
+  - research required: Autodoors
   </description>
 </ModMetaData>
