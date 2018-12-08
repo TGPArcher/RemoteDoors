@@ -6,9 +6,9 @@
   <targetVersion>1.0.0</targetVersion>
   <description>
 This mod adds remote technologies such as:
-* Remote Controller - an controller which can acces other remote objects and acctivate their functionality
+* Remote Controller - an controller which can access other remote objects and acctivate their functionality
 	- section: Misc
-	- research required: MicroelectronicsBasics
+	- research required: Electricity
 * Remote Door - a new type of door which can be opened or closed only by the remote controller
 	- section: Structures
   - research required: Autodoors
