@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+    <RD_Controller_TargetOutOfRange>Target is out of range</RD_Controller_TargetOutOfRange>
+    <RD_Controller_Unmanned>There is no one operating the controller</RD_Controller_Unmanned>
+    <RD_Controller_TargetNotRemote>Selected building does not have remote control</RD_Controller_TargetNotRemote>
+    <RD_Controller_Gizmo_Activate>Activate</RD_Controller_Gizmo_Activate>
+    <RD_Controller_Gizmo_Activate_Desc>Activate an remote object</RD_Controller_Gizmo_Activate_Desc>
+
+    <RD_Door_NotPowered>Door is not powered</RD_Door_NotPowered>
+    <RD_Door_Blocked>Can't close the door because it is blocked momentary!</RD_Door_Blocked>
+
+</LanguageData>
