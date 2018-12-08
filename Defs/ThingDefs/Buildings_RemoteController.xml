@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+    <defName>RemoteController</defName>
+    <label>remote controller</label>
+    <description>An controller capable of accesing remote devices.</description>
+    <thingClass>RemoteDoors.Building_RemoteController</thingClass>
+    <graphicData>
+      <texPath>Things/Buildings/RemoteController</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <rect>(0,0,0.5,0.5)</rect>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <shadowData>
+        <volume>(1,0.5,1)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>50</pathCost>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>0.2</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>2000</WorkToBuild>
+      <Flammability>0.4</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>50</Steel>
+      <Gold>10</Gold>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <specialDisplayRadius>34.9</specialDisplayRadius>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Breakdownable"/>
+      <li Class="CompProperties_Mannable"/>
+    </comps>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+</Defs>
