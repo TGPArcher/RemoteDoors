@@ -1,12 +1,30 @@
 ﻿using Harmony;
 using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
 using Verse;
 
 namespace RemoteDoors
 {
-    public class Building_RemoteDoor : Building_Door
+    public class Building_RemoteDoor : Building_Door, IRemoteTargetable
     {
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            var gizmos = base.GetGizmos().ToList();
+            gizmos.RemoveLast();
+
+            using (IEnumerator<Gizmo> enumerator = gizmos.GetEnumerator())
+            {
+                while (enumerator.MoveNext())
+                {
+                    Gizmo g = enumerator.Current;
+                    yield return g;
+                }
+            }
+
+            yield break;
+        }
+
         public override bool PawnCanOpen(Pawn p)
         {
             return false;
@@ -17,64 +35,34 @@ namespace RemoteDoors
             return !Open;
         }
 
-        public override IEnumerable<Gizmo> GetGizmos()
+        private void ActionDoor()
         {
-            using (IEnumerator<Gizmo> enumerator = base.GetGizmos().GetEnumerator())
+            if (!DoorPowerOn)
             {
-                if (enumerator.MoveNext())
-                {
-                    Gizmo g = enumerator.Current;
-                    yield return g;
-                }
+                Messages.Message("RD_Door_NotPowered".Translate(), new LookTargets(this), MessageTypeDefOf.RejectInput);
+                return;
             }
 
-            if (Faction == Faction.OfPlayer)
+            var holdOpenField = AccessTools.Field(typeof(Building_Door), "holdOpenInt");
+            if (Open)
             {
-                var com = new Command_Action
+                holdOpenField.SetValue(this, false);
+                if (!DoorTryClose())
                 {
-                    action = delegate
-                    {
-                        if (!DoorPowerOn)
-                        {
-                            Messages.Message("Door is not powered", new LookTargets(this), MessageTypeDefOf.RejectInput);
-                            return;
-                        }
-
-                        var holdOpenField = AccessTools.Field(typeof(Building_Door), "holdOpenInt");
-                        if (Open)
-                        {
-                            holdOpenField.SetValue(this, false);
-                            if (!DoorTryClose())
-                            {
-                                holdOpenField.SetValue(this, true);
-                                Messages.Message("Can't close the door because it is blocked momentary!", new LookTargets(this), MessageTypeDefOf.RejectInput);
-                            }
-                        }
-                        else
-                        {
-                            holdOpenField.SetValue(this, true);
-                            DoorOpen();
-                        }
-                    }
-                };
-
-                if (Open)
-                {
-                    com.defaultLabel = "Close";
-                    com.defaultDesc = "Activate remote door's closing mechanism";
-                    com.icon = TexCommand.ForbidOff;
+                    holdOpenField.SetValue(this, true);
+                    Messages.Message("RD_Door_Blocked".Translate(), new LookTargets(this), MessageTypeDefOf.RejectInput);
                 }
-                else
-                {
-                    com.defaultLabel = "Open";
-                    com.defaultDesc = "Activate remote door's opening mechanism";
-                    com.icon = TexCommand.ForbidOn;
-                }
-
-                yield return com;
             }
+            else
+            {
+                holdOpenField.SetValue(this, true);
+                DoorOpen();
+            }
+        }
 
-            yield break;
+        public void Action()
+        {
+            ActionDoor();
         }
     }
 }

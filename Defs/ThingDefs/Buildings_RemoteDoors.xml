@@ -44,6 +44,7 @@
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>20</basePowerConsumption>
       </li>
+      <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
     </comps>
     <placeWorkers>
@@ -56,22 +57,25 @@
     <label>remote door</label>
     <description>Divides rooms. Can be activated only by a remote controller.</description>
     <statBases>
-      <WorkToBuild>1100</WorkToBuild>
+      <WorkToBuild>1200</WorkToBuild>
     </statBases>
     <graphicData>
-      <texPath>Things/Building/Door/Autodoor_Mover</texPath>
+      <texPath>Things/Buildings/RemoteDoor_Mover</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <damageData>
         <enabled>false</enabled>
       </damageData>
     </graphicData>
-    <uiIconPath>Things/Building/Door/Autodoor_MenuIcon</uiIconPath>
+    <uiIconPath>Things/Buildings/RemoteDoor_MenuIcon</uiIconPath>
     <costList>
       <Steel>40</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <costStuffCount>25</costStuffCount>
-    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>Autodoors</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
   </ThingDef>
 
 </Defs>
